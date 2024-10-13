@@ -109,6 +109,33 @@ function NumbersToExpressions:init(settings)
             if math.abs(sine - val) > 0.0001 then return false end -- Precision check
             return Ast.SinExpression(self:CreateNumberExpression(angle, depth), false)
         end,
+        function(val, depth) -- Negative Expression
+            if tonumber(tostring(-val)) ~= -val then
+                return false;
+            end
+            return Ast.NegateExpression(self:CreateNumberExpression(-val, depth), false);
+        end,
+        function(val, depth)
+            if val == 0 then return Ast.NumberExpression(0) end
+            local exponent = math.random(2, 5)
+            local base = math.floor(val ^ (1 / exponent))
+            if base ^ exponent ~= val then
+                return false
+            end
+            local expression = self:CreateNumberExpression(base, depth)
+            for i = 2, exponent do
+                expression = Ast.MulExpression(expression, self:CreateNumberExpression(base, depth), false)
+            end
+            return expression
+        end,
+		function(val, depth)
+            if val <= 0 then return false end
+            local root = math.sqrt(val)
+            if root % 1 ~= 0 then
+                return false;
+            end
+            return Ast.MulExpression(self:CreateNumberExpression(root, depth), self:CreateNumberExpression(root, depth), false);
+        end,
     }
     
     self.ExpressionGenerators = util.shuffle(self.ExpressionGenerators)
