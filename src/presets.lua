@@ -8,175 +8,57 @@ local function uuid()
 end
 
 return {
-    ["Basic"] = {
-        -- The default LuaVersion is Lua51 but we can change it to LuaU
+    ["main"] = {
         LuaVersion = "LuaU",
-        -- For minifying no VarNamePrefix is applied
         VarNamePrefix = "",
-        -- Name Generator for Variables that look like this: IlI1lI1l
         NameGenerator = "MangledShuffled",
-        -- No pretty printing
         PrettyPrint = false,
-        -- Seed is generated based on current time
         Seed = 0,
-        -- Obfuscation steps
         Steps = {
             {
                 Name = "Vmify",
                 Settings = {
-                    VM = "CompilerA", -- Explicitly specify CompilerA for the free version
-                },
-            },
-            {
-                Name = "EncryptStrings",
-                Settings = {
-
-                },
-            },
-            {
-                Name = "SplitStrings",
-                Settings = {
-
-                }
-            },
-            {
-                Name = "WatermarkCheck",
-                Settings = {
-                    Content =
-                    "This script is safeguarded by the free version of ObscuraLua, an advanced Lua obfuscation technology devised by User319183. For further details, please refer to our official website: https://obscuralua.com. Version 1.1.0.",
-                    CustomVariable = "__OBSCURALUA__"
-                }
-            },
-            {
-                Name = "FreeAntiTamper",
-                Settings = {
-
-                }
-            },
-            {
-                Name = "Vmify",
-                Settings = {
-                    VM = "CompilerA", -- Explicitly specify CompilerA for the free version
-                },
-            },
-            {
-                Name = "ConstantArray",
-                Settings = {
-
-                }
-            },
-            {
-                Name = "StringsToExpressions",
-                Settings = {
-
-                }
-            },
-            {
-                Name = "NumbersToExpressions",
-                Settings = {
-
-                }
-            },
-            {
-                Name = "WrapInFunction",
-                Settings = {
-
-                }
-            },
-
-
-        }
-    },
-
-
-    ["Strong"] = {
-        -- The default LuaVersion is Lua51 but we can change it to LuaU
-        LuaVersion = "LuaU",
-        -- For minifying no VarNamePrefix is applied
-        VarNamePrefix = "",
-        -- Name Generator for Variables that look like this: IlI1lI1l
-        NameGenerator = "MangledShuffled",
-        -- No pretty printing
-        PrettyPrint = false,
-        -- Seed is generated based on current time
-        Seed = 0,
-        -- Obfuscation steps
-        Steps = {
-            {
-                Name = "Vmify",
-                Settings = {
-                    VM = "random", -- Specify "random" to select a random compiler in the paid version
+                    VM = "random",
                 },
             },
             {
                 Name = "AddVararg",
-                Settings = {
-
-                },
+                Settings = {},
             },
             {
                 Name = "EncryptStrings",
-                Settings = {
-
-                },
+                Settings = {},
             },
             {
                 Name = "SplitStrings",
-                Settings = {
-
-                }
+                Settings = {},
             },
             {
                 Name = "PaidAntiTamper",
-                Settings = {
-
-                },
-            },
-            {
-                Name = "WatermarkCheck",
-                Settings = {
-                    Content =
-                    "This script is safeguarded by the paid version of ObscuraLua, an advanced Lua obfuscation technology devised by User319183. For further details, please refer to our official website: https://obscuralua.com. This script has been verified by ObscuraLua. Version 1.1.0.",
-                    CustomVariable = "__OBSCURALUA__"
-                }
+                Settings = {},
             },
             {
                 Name = "Vmify",
                 Settings = {
-                    VM = "random", -- Specify "random" to select a random compiler in the paid version
+                    VM = "random",
                 },
             },
             {
-                Name = "ConstantArray",
-                Settings = {
-
-                }
-            },
-            {
                 Name = "StringsToExpressions",
-                Settings = {
-
-                }
+                Settings = {},
             },
             {
                 Name = "NumbersToExpressions",
-                Settings = {
-
-                }
+                Settings = {},
             },
             {
                 Name = "WrapInFunction",
-                Settings = {
-
-                }
+                Settings = {},
             },
-
             {
                 Name = "ProxifyLocals",
-                Settings = {
-
-                }
+                Settings = {},
             },
         }
-    },
+    }
 }
