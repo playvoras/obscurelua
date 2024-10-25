@@ -17,11 +17,9 @@ return {
             { Name = "EncryptStrings" },
             { Name = "SplitStrings" },
             { Name = "PaidAntiTamper" },
-            { Name = "Vmify", Settings = { VM = "random" } },
             { Name = "StringsToExpressions" },
             { Name = "NumbersToExpressions" },
             { Name = "WrapInFunction" },
-            { Name = "ProxifyLocals" },
         }
     }
 }
