@@ -128,7 +128,7 @@ function NumbersToExpressions:init(settings)
             end
             return expression
         end,
-		function(val, depth)
+	function(val, depth)
             if val <= 0 then return false end
             local root = math.sqrt(val)
             if root % 1 ~= 0 then
@@ -136,6 +136,15 @@ function NumbersToExpressions:init(settings)
             end
             return Ast.MulExpression(self:CreateNumberExpression(root, depth), self:CreateNumberExpression(root, depth), false);
         end,
+	function(val, depth)
+            local range = 2 ^ (self.Range - depth)
+            local addend = math.random(-range, range)
+            local result = val + addend
+            if tonumber(tostring(result)) - tonumber(tostring(addend)) ~= val then
+                return false
+            end
+            return Ast.AddExpression(self:CreateNumberExpression(val, depth), self:CreateNumberExpression(addend, depth), false)
+        end
     }
     
     self.ExpressionGenerators = util.shuffle(self.ExpressionGenerators)
