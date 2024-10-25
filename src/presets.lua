@@ -1,25 +1,64 @@
+-- function that generates a unique uuid
 local function uuid()
-    return string.gsub('xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx', '[xy]', function(c)
-        return string.format('%x', (c == 'x') and math.random(0, 0xf) or math.random(8, 0xb))
+    local template ='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+    return string.gsub(template, '[xy]', function (c)
+        local v = (c == 'x') and math.random(0, 0xf) or math.random(8, 0xb)
+        return string.format('%x', v)
     end)
 end
 
 return {
-    main = {
+    ["main"] = {
         LuaVersion = "LuaU",
         VarNamePrefix = "",
         NameGenerator = "MangledShuffled",
         PrettyPrint = false,
         Seed = 0,
         Steps = {
-            { Name = "Vmify", Settings = { VM = "random" } },
-            { Name = "AddVararg" },
-            { Name = "EncryptStrings" },
-            { Name = "SplitStrings" },
-            { Name = "PaidAntiTamper" },
-            { Name = "StringsToExpressions" },
-            { Name = "NumbersToExpressions" },
-            { Name = "WrapInFunction" }
+            {
+                Name = "Vmify",
+                Settings = {
+                    VM = "random",
+                },
+            },
+            {
+                Name = "AddVararg",
+                Settings = {},
+            },
+            {
+                Name = "EncryptStrings",
+                Settings = {},
+            },
+            {
+                Name = "SplitStrings",
+                Settings = {},
+            },
+            {
+                Name = "PaidAntiTamper",
+                Settings = {},
+            },
+            {
+                Name = "Vmify",
+                Settings = {
+                    VM = "random",
+                },
+            },
+            {
+                Name = "StringsToExpressions",
+                Settings = {},
+            },
+            {
+                Name = "NumbersToExpressions",
+                Settings = {},
+            },
+            {
+                Name = "WrapInFunction",
+                Settings = {},
+            },
+            {
+                Name = "ProxifyLocals",
+                Settings = {},
+            },
         }
     }
 }
