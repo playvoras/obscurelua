@@ -19,7 +19,7 @@ return {
             { Name = "PaidAntiTamper" },
             { Name = "StringsToExpressions" },
             { Name = "NumbersToExpressions" },
-            { Name = "WrapInFunction" },
+            { Name = "WrapInFunction" }
         }
     }
 }
